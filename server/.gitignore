@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+coverage
+dist
+docs/dist
+node_modules
+npm-debug.log
+.idea
