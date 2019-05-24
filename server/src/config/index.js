@@ -7,7 +7,7 @@ export default {
   name: 'Your super app',
   port: 3000,
   db: {
-    url: 'mongodb://localhost/newDB:27017',
+    url: 'mongodb://localhost/xiag:27017',
   },
   jwt: {
     secret: 'YOUR_SECRET',

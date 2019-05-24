@@ -1,7 +1,9 @@
-import auth from './Auth';
+import polls from './Polls';
+import users from './Users';
 
 export default function () {
   return {
-    Auth: auth(...arguments),
+	  Polls: polls(...arguments),
+	  Users: users(...arguments),
   }
 }

@@ -6,7 +6,6 @@ import getMiddlewares from './middlewares';
 import getModels from './models';
 import getResourses from './resourses';
 import getApi from './api';
-import getAuth from './api/auth';
 
 
 export default class App {
@@ -33,15 +32,7 @@ export default class App {
 	}
 
 	getDatabase() {
-		mongoose.Promise = Promise;
-		return {
-			run: () => {
-				new Promise((resolve) => {
-					mongoose.connect(this.config.db.url);
-					resolve();
-				});
-			}
-		}
+		return () => mongoose.connect(this.config.db.url, {useNewUrlParser: true});
 	}
 
 	getResourses() {
@@ -73,8 +64,8 @@ export default class App {
 		this.app.use(this.middlewares.reqLog);
 		this.app.use(this.middlewares.accessLogger);
 		this.app.use(this.middlewares.reqParser);
-		this.app.use(this.resourses.Auth.parseToken);
-		this.app.use(this.resourses.Auth.parseUser);
+		/*this.app.use(this.resourses.Auth.parseToken);
+		this.app.use(this.resourses.Auth.parseUser);*/
 		//this.app.use('*',cors());
 		/*this.app.use(function(req, res, next) {
 			res.header("Access-Control-Allow-Origin", "*");
@@ -87,9 +78,7 @@ export default class App {
 
 	useRoutes() {
 		const api = getApi(this);
-		const auth = getAuth(this);
 		this.app.use('/api', api);
-		this.app.use('/auth', auth);
 	}
 
 	useDefaultRoute() {
@@ -99,10 +88,10 @@ export default class App {
 		});
 	}
 
-	async run() {
+	run() {
 		this.log.trace('App run');
 		try {
-			await this.db.run();
+			this.db();
 		} catch (err) {
 			this.log.fatal(err);
 		}

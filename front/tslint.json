@@ -1,0 +1,18 @@
+{
+    "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+    "rulesDirectory": ["tslint-plugin-prettier"],
+    "rules": {
+        "jsx-wrap-multiline": false,
+        // "quotemark": [true, "single", "jsx-single"],
+        "no-console": false,
+        "member-access": false,
+        "object-literal-sort-keys": false,
+        "no-submodule-imports": false,
+        // "no-submodule-imports": [true, "Components", "Actions", "Services", "Store", "Reducers", "Constants"],
+        "ordered-imports": false,
+        "no-implicit-dependencies": false,
+        "no-consecutive-blank-lines": false,
+        "jsx-no-multiline-js": false,
+        "prettier": true
+    }
+}

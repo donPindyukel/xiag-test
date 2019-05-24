@@ -1,5 +1,9 @@
+import Polls from './Polls';
+import Users from './Users';
+
 export default function () {
   return {
-    User: require('./User').default(...arguments),
+    Users: Users(...arguments),
+    Polls: Polls(...arguments)
   }
 }
