@@ -4,6 +4,8 @@ import { App } from "Components/app";
 
 export default class Root extends React.Component {
   render() {
-    return <App />;
+    return (
+        <App />
+    );
   }
 }

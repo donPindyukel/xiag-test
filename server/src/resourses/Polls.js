@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 
 const polls = (ctx) => {
 	const resourse = {};
@@ -9,6 +10,19 @@ const polls = (ctx) => {
 			const polls = new Polls(req.body);
 			await polls.save();
 			return res.json(polls);
+		} catch(err) {
+			console.log(err);
+			return res.status(500).json(err);
+		}
+	};
+
+	resourse.getPoll = async (req, res) => {
+		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+			return res.json(null);
+		}
+		try {
+			const poll = await Polls.findOne({_id: req.params.id});
+			return res.json(poll);
 		} catch(err) {
 			console.log(err);
 			return res.status(500).json(err);

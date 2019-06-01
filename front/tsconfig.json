@@ -40,7 +40,9 @@
         "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
         "paths": {
             "Components/*": ["src/components/*"],
+            "Elements": ["src/components/elements/index.ts"],
             "Constants": ["src/constants.ts"],
+            "Services/*": ["src/services/*"],
             "Models": ["src/models.ts"],
             // Services: path.join(_dirname, 'services'),
             // Actions: path.join(_dirname, 'actions'),

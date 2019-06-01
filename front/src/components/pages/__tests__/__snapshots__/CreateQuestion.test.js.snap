@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateQuestion /> CreateQuestion renders the component 1`] = `
+<div
+  className="create-question"
+>
+  <div
+    className="form-wrap"
+  >
+    <div
+      className="question-field"
+    >
+      <div
+        className="question-title"
+      >
+        Question:
+      </div>
+      <input
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="answers-wrap"
+    >
+      <div
+        className="answer-wrap"
+        key="0"
+      >
+        <div
+          className="answer-title"
+        >
+          Answer 
+          1
+          :
+        </div>
+        <input
+          onChange={[Function]}
+          type="text"
+          value="Yes"
+        />
+      </div>
+      <div
+        className="answer-wrap"
+        key="1"
+      >
+        <div
+          className="answer-title"
+        >
+          Answer 
+          2
+          :
+        </div>
+        <input
+          onChange={[Function]}
+          type="text"
+          value="No"
+        />
+      </div>
+    </div>
+    <div
+      className="add-button-wrap"
+    >
+      <button
+        onClick={[Function]}
+      >
+        +
+      </button>
+    </div>
+    <div
+      className="start-button-wrap"
+    >
+      <button
+        disabled={true}
+        onClick={[Function]}
+      >
+        Start
+      </button>
+    </div>
+  </div>
+</div>
+`;

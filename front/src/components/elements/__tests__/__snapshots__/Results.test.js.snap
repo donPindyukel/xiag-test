@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Results /> Results renders the component 1`] = `
+<div
+  className="results-wrap"
+>
+  <h1>
+    Results
+  </h1>
+  <div
+    className="rows"
+  >
+    <div
+      className="header"
+    >
+      <div
+        className="name"
+      >
+        Name
+      </div>
+      <div
+        className="answer"
+        key="test"
+      >
+        test
+      </div>
+    </div>
+    <div
+      className="data-row"
+      key="test"
+    >
+      <div
+        className="name"
+      >
+        test
+      </div>
+      <div
+        className="answer-data"
+        key="test-data-row"
+      >
+        x
+      </div>
+    </div>
+  </div>
+</div>
+`;

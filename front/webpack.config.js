@@ -17,7 +17,7 @@ module.exports = ({ mode } = { mode: 'production', presets: [] }) => {
             mode,
             entry: ['./src/entry'],
             output: {
-                filename: 'corpChat-main_bundle.min.js',
+                filename: 'main_bundle.min.js',
                 chunkFilename: '[name].bundle.js',
                 path: path.resolve(__dirname, 'dist'),
             },
@@ -28,6 +28,7 @@ module.exports = ({ mode } = { mode: 'production', presets: [] }) => {
                         __dirname,
                         'src/components/elements/index.ts'
                     ),
+                    Services: path.join(__dirname, 'src/services'),
                     Constants$: path.join(__dirname, 'src/constants.ts'),
                     Models$: path.join(__dirname, 'src/models.ts'),
                 },

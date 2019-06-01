@@ -1,0 +1,41 @@
+.results-wrap {
+  h1 {
+    font-size: 25px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    color: var(--fontColor);
+    margin-top: 20px;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-top: 20px;
+
+    .header,
+    .data-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .header {
+      text-align: left;
+      padding: 10px 20px;
+      border-bottom: 1px var(--borderColor) solid;
+      background-color: #eee;
+      font-size: 16px;
+      color: var(--fontColor);
+      font-weight: 700;
+    }
+
+    .data-row {
+      padding: 8px 20px;
+      border-bottom: 1px #eee solid;
+      font-size: 14px;
+      color: var(--fontColor);
+    }
+  }
+}

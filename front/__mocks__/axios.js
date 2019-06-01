@@ -2,8 +2,12 @@ const axios = () => {
  return;
 };
 
-axios.CancelToken = () => {
+axios.defaults = () => {
  return;
+};
+
+axios.defaults.headers = () => {
+  return;
 };
 
 

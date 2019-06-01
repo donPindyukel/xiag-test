@@ -1,12 +1,13 @@
 import bunyan from 'bunyan';
 import express from 'express';
-//var cors = require('cors');
 import mongoose from 'mongoose';
+import cors from 'cors';
+import { Server } from 'http';
 import getMiddlewares from './middlewares';
 import getModels from './models';
 import getResourses from './resourses';
 import getApi from './api';
-
+import { socketHandlers } from "./sockets/SockServer";
 
 export default class App {
 	constructor(params = {}) {
@@ -61,19 +62,10 @@ export default class App {
 	}
 
 	useMiddlewares() {
+		this.app.use(cors());
 		this.app.use(this.middlewares.reqLog);
 		this.app.use(this.middlewares.accessLogger);
 		this.app.use(this.middlewares.reqParser);
-		/*this.app.use(this.resourses.Auth.parseToken);
-		this.app.use(this.resourses.Auth.parseUser);*/
-		//this.app.use('*',cors());
-		/*this.app.use(function(req, res, next) {
-			res.header("Access-Control-Allow-Origin", "*");
-			res.header("Access-Control-Allow_Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
-			res.header("Access-Control-Allow-Headers", "X-Requested-With, content-type, Authorization");
-			res.header("Access-Control-Allow-Credentials", "true");
-			next();
-		});*/
 	}
 
 	useRoutes() {
@@ -95,11 +87,15 @@ export default class App {
 		} catch (err) {
 			this.log.fatal(err);
 		}
+
 		return new Promise((resolve) => {
-			this.app.listen(this.config.port, () => {
+			const server = Server(this.app);
+			const io = require('socket.io')(server);
+			io.on('connection', socketHandlers);
+			server.listen(this.config.port, () => {
 				this.log.info(`App "${this.config.name}" running on port ${this.config.port}!`);
 				resolve(this);
 			});
 		});
 	}
-}
+};

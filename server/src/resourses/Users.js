@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 
 const users = (ctx) => {
 	const resourse = {};
@@ -11,6 +12,19 @@ const users = (ctx) => {
 			});
 			await user.save();
 			res.json(user);
+		} catch(err) {
+			console.log(err);
+			return res.status(500).json(err);
+		}
+	};
+
+	resourse.getUser = async (req, res) => {
+		if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+			return res.json(null);
+		}
+		try {
+			const user = await Users.findOne({_id: req.params.id});
+			return res.json(user);
 		} catch(err) {
 			console.log(err);
 			return res.status(500).json(err);

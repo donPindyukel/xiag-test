@@ -12,6 +12,7 @@
     "body-parser": "~1.15.2",
     "bunyan": "^1.8.5",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
     "express": "~4.14.0",
     "express-async-router": "^0.1.12",
     "express-jwt": "^5.1.0",
@@ -20,6 +21,7 @@
     "lodash": "^4.17.3",
     "mongoose": "^5.5.10",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^2.2.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
